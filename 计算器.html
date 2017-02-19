@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+<div class="container-fluid ">
+	<div class="row-fluid">
+		<div class="span12">
+<br />
+			<div class="container-fluid"><input id="input" type="text" /></div>
+<br />
+			<div class="container-fluid"><button class="btn btn-primary" type="button" onclick=ininput(1) id="1">1</button>
+			<button class="btn btn-primary" type="button" onclick=ininput(2) id="2">2</button>
+			<button class="btn btn-primary" type="button" onclick=ininput(3) id="3">3</button>
+			<button class="btn btn-primary" type="button" onclick=oper("+") id="+">+</button></div>
+<br />
+			<div class="container-fluid"><button class="btn btn-primary" type="button" onclick=ininput(4) id="4">4</button>
+			<button class="btn btn-primary" type="button" onclick=ininput(5) id="5">5</button>
+			<button class="btn btn-primary" type="button" onclick=ininput(6) id="6">6</button>
+			<button class="btn btn-primary" type="button" onclick=oper("-") id="-">-</button></div>
+<br />
+			<div class="container-fluid"><button class="btn btn-primary" type="button" onclick=ininput(7) id="7">7</button>
+			<button class="btn btn-primary" type="button" onclick=ininput(8) id="8">8</button>
+			<button class="btn btn-primary" type="button" onclick=ininput(9) id="9">9</button>
+			<button class="btn btn-primary" type="button" onclick=oper("*") id="*">*</button></div>
+<br />
+			<div class="container-fluid"><button class="btn btn-primary" type="button" onclick=cl() id="c">c</button>
+			<button class="btn btn-primary" type="button" onclick=ininput(0) id="0">0</button>
+			<button class="btn btn-primary" type="button" onclick=equ() id="=">=</button>
+			<button class="btn btn-primary" type="button" onclick=oper("/") id="/">/</button></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+N1 = 0;
+opera = "";
+function ininput(x){
+	s = document.getElementById(x).innerHTML;
+	i = document.getElementById("input").value
+	if (i=="+"||i=="-"||i=="*"||i=="/"){document.getElementById("input").value = ""};
+	document.getElementById("input").value += s;
+}
+function swit(){
+	switch(opera){
+	case "+":
+		N1+=parseInt(document.getElementById("input").value);
+		break;
+	case "-":
+		N1-=parseInt(document.getElementById("input").value);
+		break;
+	case "*":
+		N1*=parseInt(document.getElementById("input").value);
+		break;
+	case "/":
+		N1/=parseInt(document.getElementById("input").value);
+		break;
+	default:
+		N1=parseInt(document.getElementById("input").value);
+		break;
+	}
+	}
+function oper(x){
+	swit()
+	document.getElementById("input").value = x;
+	opera = x;
+	}
+function cl(){
+	document.getElementById("input").value = "";
+	N1 = 0;
+	opera = 0;
+}
+function equ(){
+	swit()
+	document.getElementById("input").value = N1;
+	N1 = 0;
+	opera = 0;
+	}
+</script>        
+  </body>
+</html>
